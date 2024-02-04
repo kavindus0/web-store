@@ -1,6 +1,10 @@
 from django.db import models
 
 
+class Collection(models.Model):
+    title = models.CharField(max_length=255)
+
+
 # Create your models here.
 class Product(models.Model):
     title = models.CharField(max_length=255)
@@ -8,6 +12,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     inventory = models.IntegerField()
     last_update = models.DateTimeField(auto_now=True)
+    Collection = models.ForeignKey(Collection, on_delete=models.PROTECT)
 
 
 class Order(models.Model):
@@ -22,6 +27,8 @@ class Order(models.Model):
     placed_at = models.DateTimeField(auto_now_add=True)
 
     payment_status = models.CharField(choices=PAYMENT_STATUS, default=PAYMENT_STATUS_PENDING, max_length=1)
+
+    Customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
 
 
 class Customer(models.Model):
@@ -42,7 +49,25 @@ class Customer(models.Model):
     membership = models.CharField(max_length=1, choices=MEMBERSHIP_CHOICES, default=MEMBERSHIP_BRONZE)
 
 
-class Adress(models.Model):
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.PROTECT)
+    product = models.ForeignKey(Product, on_delete=models.PROTECT)
+    quantity = models.PositiveSmallIntegerField()
+    unit_price = models.DecimalField(max_digits=6, decimal_places=2)
+
+
+class Address(models.Model):
     street = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
-    customer = models.OneToOneField(Customer,on_delete=models.CASCADE,primary_key=True)
+    customer = models.OneToOneField(Customer, on_delete=models.CASCADE, primary_key=True)
+
+
+class Cart(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+class CartItem(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveSmallIntegerField()
+

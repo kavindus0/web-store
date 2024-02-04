@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground by {{name}}</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+        
+        .navigation {
+            display: flex;
+            list-style: none;
+            margin: 0;
+        }
+        
+        .navigation a {
+            padding: 10px;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        section {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .output {
+            border: 1px solid #eee;
+            padding: 10px;
+            min-height: 100px;
+            white-space: pre-wrap;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 200px;
+            resize: vertical;
+            padding: 10px;
+            font-family: monospace;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        #run-code {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        {%if name%}
+        <h1>Playground by {{name}}</h1>
+        {%else%}
+        <h1>PlaygrounD</h1>
+        {% endif %}
+        <nav class="navigation">
+            <a href="#html">HTML</a>
+            <a href="#css">CSS</a>
+            <a href="#javascript">JavaScript</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section id="html">
+            <h2>HTML Editor</h2>
+            <textarea id="html-code"></textarea>
+            <div class="output" id="html-output"></div>
+        </section>
+
+        <section id="css">
+            <h2>CSS Editor</h2>
+            <textarea id="css-code"></textarea>
+            <div class="output" id="css-output"></div>
+        </section>
+
+        <section id="javascript">
+            <h2>JavaScript Editor</h2>
+            <textarea id="javascript-code"></textarea>
+            <div class="output" id="css-output"></div> </section>
+
+        <button id="run-code">Run Code</button>
+    </main>
+
+    <script>
+        const htmlCode = document.getElementById('html-code');
+const cssCode = document.getElementById('css-code');
+const javascriptCode = document.getElementById('javascript-code');
+const htmlOutput = document.getElementById('html-output');
+const cssOutput = document.getElementById('css-output');
+
+const runCodeButton = document.getElementById('run-code');
+
+runCodeButton.addEventListener('click', () => {
+    // Clear previous output
+    htmlOutput.textContent = '';
+    cssOutput.textContent = '';
+
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    // Create document content with combined HTML, CSS, and JavaScript
+    const doc = iframe.contentDocument;
+    doc.open
+
+    </script>
+</body>
+</html>

@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'playground',
     'aboutUs',
     'debug_toolbar',
-    'store'
+    'store',
+    'likes'
 ]
 INTERNAL_IPS = [
     '127.0.0.1',

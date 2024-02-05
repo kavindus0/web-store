@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'aboutUs',
     'debug_toolbar',
     'store',
-    'likes'
+    'likes',
+    'tags'
 ]
 INTERNAL_IPS = [
     '127.0.0.1',

@@ -1,4 +1,6 @@
-#This is a Django web application for an online store, serving as a test project. It features various functionalities, including:
+This is a Django web application for an online store, serving as a test project. It features various functionalities, 
+
+including:
 
 Storefront:
 Browse and purchase products.

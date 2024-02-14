@@ -1,4 +1,7 @@
 This is a Django web application for an online store, serving as a test project. It features various functionalities, 
+# (Ongoing Django project)
+
+![repository-open-graph-template](https://github.com/kavindus0/web-store/assets/126804361/7348c33b-d375-4bde-bc0f-cf0795b6a6f5)
 
 including:
 
